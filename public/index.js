@@ -5,14 +5,14 @@ const data = await res.json()
 
 renderFeed(data)
 
-document.addEventListener('click', e => {
+document.addEventListener('click', async(e) => {
     if (e.target.dataset.reply) {
         document.getElementById(`replies-${e.target.dataset.reply}`)
         .classList.toggle('hidden')
     } else if (e.target.dataset.like) {
-        likeTweet(e.target.dataset.like)
+        await likeTweet(e.target.dataset.like)
     } else if (e.target.dataset.retweet) {
-        retweetTweet(e.target.dataset.retweet)
+        await retweetTweet(e.target.dataset.retweet)
     }
 })
 
@@ -63,7 +63,10 @@ function renderFeed(data) {
     `).join('')
 }
 
-function likeTweet(id) {
+async function likeTweet(id) {
+
+    const matchingTweet = data.find(el => el.uuid === id)
+
     data.forEach(el => {
         if (el.uuid === id) {
             el.isLiked ? el.likes-- : el.likes++
@@ -71,9 +74,20 @@ function likeTweet(id) {
         }
     })
     renderFeed(data)
+
+    await fetch(`/tweets/${id}/like`, 
+        { 
+            method: 'PUT', 
+            headers:  { 'Content-Type': 'application/json' }
+        }
+    )
+    
 }
 
-function retweetTweet(id) {
+async function retweetTweet(id) {
+
+    const matchingTweet = data.find(el => el.uuid === id)
+
     data.forEach(el => {
         if (el.uuid === id) {
             el.isRetweeted ? el.retweets-- : el.retweets++
@@ -81,4 +95,12 @@ function retweetTweet(id) {
         }
     })
     renderFeed(data)
+
+    await fetch(`/tweets/${id}/retweet`, 
+        { 
+            method: 'PUT', 
+            headers:  { 'Content-Type': 'application/json' }
+        }
+    )
+
 }
