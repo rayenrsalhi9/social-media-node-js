@@ -11,6 +11,8 @@ document.addEventListener('click', e => {
         .classList.toggle('hidden')
     } else if (e.target.dataset.like) {
         likeTweet(e.target.dataset.like)
+    } else if (e.target.dataset.retweet) {
+        retweetTweet(e.target.dataset.retweet)
     }
 })
 
@@ -66,6 +68,16 @@ function likeTweet(id) {
         if (el.uuid === id) {
             el.isLiked ? el.likes-- : el.likes++
             el.isLiked = !el.isLiked
+        }
+    })
+    renderFeed(data)
+}
+
+function retweetTweet(id) {
+    data.forEach(el => {
+        if (el.uuid === id) {
+            el.isRetweeted ? el.retweets-- : el.retweets++
+            el.isRetweeted = !el.isRetweeted
         }
     })
     renderFeed(data)
