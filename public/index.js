@@ -1,4 +1,8 @@
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid'; 
+import sanitizeHtml from 'https://jspm.dev/sanitize-html'
+
 const feedEl = document.getElementById('feed')
+const tweetInput = document.getElementById('tweet-input')
 const tweetBtn = document.getElementById('tweet-btn')
 
 const res = await fetch('/tweets')
@@ -17,7 +21,30 @@ document.addEventListener('click', async(e) => {
     }
 })
 
-tweetBtn.addEventListener('click', showNotification)
+tweetBtn.addEventListener('click', async (e) => {
+    e.preventDefault()
+    const tweetContent = sanitizeInput(tweetInput.value)
+    const tweetObj = {
+        uuid: uuidv4(),
+        username: '@essalhi18',
+        profilePic: 'images/profile-pic.jpg',
+        tweetText: tweetContent,
+        replies: [],
+        likes: 0,
+        retweets: 0,
+        isLiked: false,
+        isRetweeted: false,
+    }
+    data.unshift(tweetObj)
+    tweetInput.value = ''
+    renderFeed(data)
+    showNotification()
+    await fetch('/tweets', {
+        method: 'POST',
+        headers:  { 'Content-Type': 'application/json' },
+        body: JSON.stringify(tweetObj)
+    })
+})
 
 function renderFeed(data) {
     feedEl.innerHTML = data.map(tweet => `
@@ -121,4 +148,8 @@ function showNotification() {
         notification.classList.remove('show');
         notification.classList.add('hide');
     }, 3000);
+}
+
+function sanitizeInput(input) {
+    return sanitizeHtml(input)
 }
