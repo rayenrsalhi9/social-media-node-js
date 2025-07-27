@@ -5,13 +5,6 @@ const data = await res.json()
 
 renderFeed(data)
 
-document.addEventListener('click', e => {
-    if (e.target.dataset.reply) {
-        document.getElementById(`replies-${e.target.dataset.reply}`)
-        .classList.toggle('hidden')
-    }
-})
-
 function renderFeed(data) {
     feedEl.innerHTML = data.map(tweet => `
         <div class="tweet">
