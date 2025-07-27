@@ -1,0 +1,16 @@
+{
+  "name": "twitter-node",
+  "version": "1.0.0",
+  "description": "a social media app using node-js",
+  "license": "ISC",
+  "author": "Salhi Rayen",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "sanitize-html": "^2.17.0"
+  }
+}

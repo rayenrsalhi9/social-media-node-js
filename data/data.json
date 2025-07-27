@@ -1,0 +1,57 @@
+[
+  {
+    "username": "@CryptoWhiz99 💎",
+    "profilePic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrNJjT9VE2YxcQ-l8A2KdHl5_ehJpmqPJMaA&s",
+    "likes": 27,
+    "retweets": 10,
+    "tweetText": "Just discovered this amazing NFT collection! 🎨✨ Limited time offer, DM for exclusive access! #NFT #Crypto",
+    "replies": [],
+    "isLiked": false,
+    "isRetweeted": false,
+    "uuid": "4b161eee-c0f5-4545-9c4b-8562944223ee"
+  },
+  {
+    "username": "@TechGuru ✅",
+    "profilePic": "https://st.depositphotos.com/46542440/55685/i/450/depositphotos_556851660-stock-illustration-square-face-character-stiff-art.jpg",
+    "likes": 6500,
+    "retweets": 234,
+    "tweetText": "Breaking: Our new quantum computer can run Minecraft! Who wants to test it? 🖥️ #QuantumComputing",
+    "replies": [
+      {
+        "username": "@GamingLegend ✅",
+        "profilePic": "https://lh3.googleusercontent.com/X8LuYsGddUvyGns8yNt3lsqXU-etopUi9saFCQ-VMIImDW0plr-ZvBRjhnKh4V2r6UEMaBMXUBkJSD_RrHbWdmIp2RUnVJgcbiJ_S3l_kOAseWWI6JiLccLcL0cRFpnba-n4bjlOW3FvHbHdMs_ToZE",
+        "tweetText": "Count me in! Ready to experience quantum gaming! 🎮✨"
+      },
+      {
+        "username": "@TechSceptic ✅",
+        "profilePic": "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg",
+        "tweetText": "But can it run Crysis? 🤔"
+      }
+    ],
+    "isLiked": false,
+    "isRetweeted": false,
+    "uuid": "3c23454ee-c0f5-9g9g-9c4b-77835tgs2"
+  },
+  {
+    "username": "@CodeNewbie2024",
+    "profilePic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4v4p40i3zfEI7a_1TNVTsTk0t4o-KeIQ5FQ&s",
+    "likes": 10,
+    "retweets": 3,
+    "tweetText": "Day 1 of learning to code: Is Python harder than JavaScript? 🐍",
+    "replies": [
+      {
+        "username": "@SeniorDev ☣️",
+        "profilePic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp0vKEbymT2QAM0SGqek2PY9hXqouotZ94sEq6UYQ1atuSSQ9XktlT32u_p4APkYAK5p0&usqp=CAU",
+        "tweetText": "Both have their challenges. Focus on understanding programming concepts first! 💡"
+      },
+      {
+        "username": "@CodeMentor42",
+        "profilePic": "https://easy-peasy.ai/cdn-cgi/image/quality=70,format=auto,width=500/https://media.easy-peasy.ai/3ffe063f-40f2-42a4-9dfe-238f24edcb91/e615b096-4cf5-4f63-ab3e-6d173238d2ce.png",
+        "tweetText": "Start with what interests you most! Every journey begins with a single step 🌟"
+      }
+    ],
+    "isLiked": false,
+    "isRetweeted": false,
+    "uuid": "8hy671sff-c0f5-4545-9c4b-1237gyys45"
+  }
+]

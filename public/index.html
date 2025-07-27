@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- css -->
+    <link rel="stylesheet" href="index.css">
+    <title>Twitter - NodeJS App</title>
+</head>
+<body>
+
+    <header>
+        <h1>Twitter</h1>
+    </header>
+
+    <main>
+        <section class="tweet-input-area">
+			<img src="images/profile-pic.jpg"  alt="profile pic" class="profile-pic">
+			<textarea placeholder="What's happening?" id="tweet-input"></textarea>
+		</section>
+		<button id="tweet-btn">Tweet</button>
+		<section class="feed" id="feed">
+			<!-- tweets will appear here -->
+		</section>
+    </main>
+
+    <script type="module" src="index.js"></script>
+</body>
+</html>
