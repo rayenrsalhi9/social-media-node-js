@@ -1,4 +1,5 @@
 const feedEl = document.getElementById('feed')
+const tweetBtn = document.getElementById('tweet-btn')
 
 const res = await fetch('/tweets')
 const data = await res.json() 
@@ -15,6 +16,8 @@ document.addEventListener('click', async(e) => {
         await retweetTweet(e.target.dataset.retweet)
     }
 })
+
+tweetBtn.addEventListener('click', showNotification)
 
 function renderFeed(data) {
     feedEl.innerHTML = data.map(tweet => `
@@ -103,4 +106,19 @@ async function retweetTweet(id) {
         }
     )
 
+}
+
+function showNotification() {
+    const notification = document.getElementById('notification');
+    
+    notification.classList.remove('show', 'hide');
+    
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+        notification.classList.add('hide');
+    }, 3000);
 }
