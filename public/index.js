@@ -9,6 +9,8 @@ document.addEventListener('click', e => {
     if (e.target.dataset.reply) {
         document.getElementById(`replies-${e.target.dataset.reply}`)
         .classList.toggle('hidden')
+    } else if (e.target.dataset.like) {
+        likeTweet(e.target.dataset.like)
     }
 })
 
@@ -57,4 +59,14 @@ function renderFeed(data) {
             </div>   
         </div>
     `).join('')
+}
+
+function likeTweet(id) {
+    data.forEach(el => {
+        if (el.uuid === id) {
+            el.isLiked ? el.likes-- : el.likes++
+            el.isLiked = !el.isLiked
+        }
+    })
+    renderFeed(data)
 }

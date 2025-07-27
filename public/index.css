@@ -129,10 +129,6 @@ i {
     transition: .6s ease;
 }
 
-.fa-solid:hover {
-    color: #777;
-}
-
 .liked{
     color: red;
 }
