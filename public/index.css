@@ -20,6 +20,10 @@ main, header {
 header {
     background-color: var(--main-color);
     color: white;
+    padding: 1.5em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .tweet-input-area {
@@ -137,6 +141,13 @@ button:hover {
     display: flex;
     align-items: center;
     gap: 1em;
+}
+
+@media(max-width: 768px) {
+    .notification {
+        width: 100%;
+        max-width: 250px;
+    }
 }
 
 .notification.show {

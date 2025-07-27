@@ -1,0 +1,1 @@
+export const weather = [30, 32, 31, 35, 33, 34, 29, 36]

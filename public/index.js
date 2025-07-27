@@ -3,8 +3,21 @@ import sanitizeHtml from 'https://jspm.dev/sanitize-html'
 
 const feedEl = document.getElementById('feed')
 const tweetInput = document.getElementById('tweet-input')
+const weatherArea = document.getElementById('weather-area')
 const tweetBtn = document.getElementById('tweet-btn')
 
+// updating weather area
+const eventSource = new EventSource('/weather')
+eventSource.onmessage = (e) => {
+    const data = JSON.parse(e.data)
+    const weatherData = data.weather
+    weatherArea.textContent = `${weatherData}°C`
+}
+eventSource.onerror = () => {
+    weatherArea.textContent = 'Weather not available'
+}
+
+// fetching tweets
 const res = await fetch('/tweets')
 const data = await res.json() 
 
@@ -23,27 +36,29 @@ document.addEventListener('click', async(e) => {
 
 tweetBtn.addEventListener('click', async (e) => {
     e.preventDefault()
-    const tweetContent = sanitizeInput(tweetInput.value)
-    const tweetObj = {
-        uuid: uuidv4(),
-        username: '@essalhi18',
-        profilePic: 'images/profile-pic.jpg',
-        tweetText: tweetContent,
-        replies: [],
-        likes: 0,
-        retweets: 0,
-        isLiked: false,
-        isRetweeted: false,
+    if (tweetInput.value) {
+        const tweetContent = sanitizeInput(tweetInput.value)
+        const tweetObj = {
+            uuid: uuidv4(),
+            username: '@essalhi18',
+            profilePic: 'images/profile-pic.jpg',
+            tweetText: tweetContent,
+            replies: [],
+            likes: 0,
+            retweets: 0,
+            isLiked: false,
+            isRetweeted: false,
+        }
+        data.unshift(tweetObj)
+        tweetInput.value = ''
+        renderFeed(data)
+        showNotification()
+        await fetch('/tweets', {
+            method: 'POST',
+            headers:  { 'Content-Type': 'application/json' },
+            body: JSON.stringify(tweetObj)
+        })
     }
-    data.unshift(tweetObj)
-    tweetInput.value = ''
-    renderFeed(data)
-    showNotification()
-    await fetch('/tweets', {
-        method: 'POST',
-        headers:  { 'Content-Type': 'application/json' },
-        body: JSON.stringify(tweetObj)
-    })
 })
 
 function renderFeed(data) {
